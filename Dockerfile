@@ -7,7 +7,7 @@ RUN set -x \
 
 # git pull CryptoNoter source code
 RUN cd /srv \
-    && git clone https://github.com/rickadoo/cnote.git -o cnote
+    && git clone https://github.com/rickadoo/CryptoNoter-Docker -o cnote
 
 WORKDIR /srv/cnote
 
