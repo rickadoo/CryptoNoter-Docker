@@ -7,9 +7,9 @@ RUN set -x \
 
 # git pull CryptoNoter source code
 RUN cd /srv \
-    && git clone https://github.com/cryptonoter/CryptoNoter.git -o CryptoNoter
+    && git clone https://github.com/rickadoo/cnote.git -o cnote
 
-WORKDIR /srv/CryptoNoter
+WORKDIR /srv/cnote
 
 RUN npm install
 
