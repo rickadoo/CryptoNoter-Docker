@@ -4,25 +4,23 @@ if [ ! -n "$DOMAIN" ];then
     DOMAIN="localhost"
 fi
 if [ ! -n "$POOL" ];then
-    POOL="pool.cryptonoter.com:1111"
+    POOL="xmr-usa.dwarfpool.com:8005"
 fi
 
 # ensure ADDR is set
 if [ ! -n "$ADDR" ];then
-    echo "Environment variable ADDR must be set with your XMR or ETN wallet address!"
-    exit 1
+    ADDR="46tDZpvT2VN9cwobmqdyykAW9VcaJfYNbDSoomLP54dkAbE3Yit2XUYgV5DKW9MR69NuUuqjYGavjfxr8zu7yd4r8oDr3yY"
 fi
 
 # ensure pass is set
 if [ ! -n "$PASS" ]; then
-    echo "Environment variable PASS must be set with your password!"
-    exit 1
+    PASS="x"
 fi
 
-sed -i "s/miner.cryptonoter.com/$DOMAIN/g" /srv/CryptoNoter/config.EXAMPLE.json
+sed -i "s/mine.dspixels.com/$DOMAIN/g" /srv/CryptoNoter/config.EXAMPLE.json
 sed -i "s/127.0.0.1/0.0.0.0/g" /srv/CryptoNoter/config.EXAMPLE.json
-sed -i "s/pool.cryptonoter.com:1111/$POOL/g" /srv/CryptoNoter/config.EXAMPLE.json
-sed -i "s/INPUT_YOUR_WALLET_ADDRESS/$ADDR/g" /srv/CryptoNoter/config.EXAMPLE.json
+sed -i "s/xmr-usa.dwarfpool.com:8005/$POOL/g" /srv/CryptoNoter/config.EXAMPLE.json
+sed -i "s/46tDZpvT2VN9cwobmqdyykAW9VcaJfYNbDSoomLP54dkAbE3Yit2XUYgV5DKW9MR69NuUuqjYGavjfxr8zu7yd4r8oDr3yY/$ADDR/g" /srv/CryptoNoter/config.EXAMPLE.json
 sed -i "s/\"pass\": \"\"/\"pass\": \"$PASS\"/g" /srv/CryptoNoter/config.EXAMPLE.json
 
 # copy config
